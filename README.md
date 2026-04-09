@@ -67,4 +67,10 @@ Vite will generate a `dist` folder with optimized assets ready for deployment.
 
 ## 📝 License
 
-Designed and developed by Amine Zegmou.
+Developed by Arkyadeep Pal a.k.a. Thakuma.dev
+
+## 🎨 Inspiration
+
+This project was inspired by the design and interactive elements of [aminezegmou.com](https://aminezegmou.com/).
+
+
