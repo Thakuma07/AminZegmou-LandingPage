@@ -7,6 +7,55 @@ CustomEase.create("hop", "0.9, 0, 0.1, 1");
 CustomEase.create("glide", "0.8, 0, 0.2, 1");
 
 document.addEventListener("DOMContentLoaded", () => {
+  const backdropData = [
+    {
+      cols: [
+        ["ARC//117 Delta Trace", "ARC//117 Delta Trace", "ARC//117 Delta Trace"],
+        ["ARC//117 Delta Trace", "ARC//117 Delta Trace"],
+        ["Sector / Hollow Frame", "0.392 02SD 008923"],
+        ["Material / Unknown Fiber", "Status / Soft Resonance"],
+        [":::..:::.::::...:::"]
+      ]
+    },
+    {
+      cols: [
+        ["Surface Memory"],
+        ["// / / ///// / / / ///"],
+        ["Phase Offset > 17%"],
+        ["Fragments Aligning", "Pattern Emerging"],
+        ["Collapse Pending", "Return -- Layer Zero"],
+        ["F-9"]
+      ]
+    }
+  ];
+
+  const backdrop = document.querySelector(".preloader-backdrop");
+  if (backdrop) {
+    backdrop.innerHTML = backdropData.map(row => `
+      <div class="pb-row">
+        ${row.cols.map(col => `
+          <div class="pb-col">
+            ${col.map(text => `<p>${text}</p>`).join("")}
+          </div>
+        `).join("")}
+      </div>
+    `).join("");
+  }
+
+  const preloader = document.querySelector(".preloader");
+  if (preloader) {
+    preloader.insertAdjacentHTML("afterbegin", `
+      <div class="p-row"><p>Initiating</p></div>
+      <div class="p-row">
+        <div class="p-col">
+          <div class="p-sub-col"><p>Phase 01</p><p>Sequence</p></div>
+          <div class="p-sub-col"><p>Signal Scan</p><p>07 Layers</p></div>
+        </div>
+        <div class="p-col"><p>PX-17</p></div>
+      </div>
+    `);
+  }
+
   let preloaderComplete = false;
 
   const preloaderTexts = document.querySelectorAll(".preloader p");
@@ -16,9 +65,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const svgPathLength = btnOutlineTrack.getTotalLength();
 
   gsap.set([btnOutlineTrack, btnOutlineProgress], {
-  strokeDasharray: svgPathLength,
-  strokeDashoffset: svgPathLength,
-});
+    strokeDasharray: svgPathLength,
+    strokeDashoffset: svgPathLength,
+  });
 
 preloaderTexts.forEach((p) => {
   new SplitType(p, {
