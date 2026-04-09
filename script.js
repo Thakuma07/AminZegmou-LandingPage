@@ -1,8 +1,8 @@
 import gsap from "gsap";
-import { SplitText } from "gsap/SplitText";
+import SplitType from "split-type";
 import CustomEase from "gsap/CustomEase";
 
-gsap.registerPlugin(SplitText, CustomEase);
+gsap.registerPlugin(CustomEase);
 CustomEase.create("hop", "0.9, 0, 0.1, 1");
 CustomEase.create("glide", "0.8, 0, 0.2, 1");
 
@@ -21,17 +21,17 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 preloaderTexts.forEach((p) => {
-  new SplitText(p, {
-    type: "lines",
-    linesClass: "line",
-    mask: "lines",
+  new SplitType(p, {
+    types: "lines",
+    lineClass: "line",
+    tagName: "span",
   });
 });
 
-new SplitText(".hero h1", {
-  type: "words",
-  wordsClass: "word",
-  mask: "words",
+new SplitType(".hero h1", {
+  types: "words",
+  wordClass: "word",
+  tagName: "span",
 });
 
 const introTl = gsap.timeline({ delay: 1 });
@@ -134,7 +134,7 @@ preloaderBtn.addEventListener("click", () => {
       "-=1.25",
     )
     .to(
-      "#pbc-outro-label .line",
+      "#pbc-outer-label .line",
       {
         y: "0%",
         duration: 0.75,
