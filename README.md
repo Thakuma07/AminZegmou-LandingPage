@@ -2,6 +2,8 @@
 
 A premium, interactive landing page built with modern web technologies. This project showcases a high-end digital experience with smooth animations and state-of-the-art performance.
 
+![Website Preview](./public/Website%20Preview%20Image.png)
+
 ## 🚀 Technologies
 
 - **[Vite](https://vitejs.dev/)**: Next Generation Frontend Tooling for lighting fast builds and Hot Module Replacement (HMR).
